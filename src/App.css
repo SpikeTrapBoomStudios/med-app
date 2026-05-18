@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* ── Design tokens ── */
+:root {
+  --bg: #e8e8e8;
+  --panel-bg: #ffffff;
+  --panel-border: #aaa;
+  --widget-border: #aaa;
+  --text-primary: #111;
+  --text-secondary: #444;
+  --text-muted: #777;
+  --button-background: #ffffff;
+  --button-border: #222;
+  --button-text: #111;
+  --toggle-bg: #d4d4d4;
+  --toggle-text: #444;
+  --toggle-active-bg: #ffffff;
+  --toggle-active-text: #111;
+  --pill-bg: #e0e0e0;
+  --create-border: #ccc;
+  --create-text: #555;
+}
+
+html[data-theme="dark"] {
+  --bg: #141414;
+  --panel-bg: #1e1e1e;
+  --panel-border: #555;
+  --widget-border: #555;
+  --text-primary: #f0f0f0;
+  --text-secondary: #ccc;
+  --text-muted: #888;
+  --button-background: #2a2a2a;
+  --button-border: #aaa;
+  --button-text: #f0f0f0;
+  --toggle-bg: #2a2a2a;
+  --toggle-text: #bbb;
+  --toggle-active-bg: #3d3d3d;
+  --toggle-active-text: #fff;
+  --pill-bg: #2e2e2e;
+  --create-border: #3a3a3a;
+  --create-text: #aaa;
+}
+
+/* ── Tailwind aliases → CSS custom properties ── */
+@theme inline {
+  --color-page:               var(--bg);
+  --color-surface:            var(--panel-bg);
+  --color-panel:              var(--panel-border);
+  --color-widget:             var(--widget-border);
+  --color-primary:            var(--text-primary);
+  --color-secondary:          var(--text-secondary);
+  --color-muted:              var(--text-muted);
+  --color-btn:                var(--button-background);
+  --color-btn-border:         var(--button-border);
+  --color-btn-text:           var(--button-text);
+  --color-toggle:             var(--toggle-bg);
+  --color-toggle-text:        var(--toggle-text);
+  --color-toggle-active:      var(--toggle-active-bg);
+  --color-toggle-active-text: var(--toggle-active-text);
+  --color-pill:               var(--pill-bg);
+  --color-create:             var(--create-border);
+  --color-create-text:        var(--create-text);
+}
+
+body {
+  background: var(--bg);
+  transition: background-color 0.2s;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 400px;
+}
+
+
+/* ── Input / textarea pills ── */
+.reminder-time-pill {
+  &:hover,
+  &:focus-within {
+    background: var(--toggle-bg);
+  }
+
+  &:focus-within {
+    outline: 1.5px solid var(--text-secondary);
+    outline-offset: 0;
+  }
+}
+
+.reminder-title-pill,
+.reminder-notes-pill {
+  &::placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  &:hover,
+  &:focus {
+    background: var(--toggle-bg);
+  }
+}
+
+.reminder-notes-pill {
+  resize: none;
+}
